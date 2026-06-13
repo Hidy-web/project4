@@ -45,9 +45,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="header-title">🎲 랜덤 발표자 뽑기 🎲</h1>
+      <h1 className="header-title">Random Picker</h1>
       
-      <div className="glass-panel">
+      <div className="panel">
         <StudentManager 
           students={students} 
           onAdd={addStudent}
@@ -57,7 +57,7 @@ function App() {
         />
       </div>
 
-      <div className="glass-panel">
+      <div className="panel">
         <SlotMachine 
           students={students} 
           secretList={secretList}

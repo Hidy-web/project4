@@ -20,21 +20,21 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
 
   return (
     <div className="student-manager">
-      <h2>🧑‍🎓 학생 관리</h2>
+      <h2>Student List</h2>
       
       <div style={{ marginBottom: '15px' }}>
         <button 
-          className={`btn ${!isMultiMode ? 'btn-primary' : ''}`} 
+          className={`btn ${!isMultiMode ? 'btn-primary' : 'btn-secondary'}`} 
           style={{ marginRight: '10px' }}
           onClick={() => setIsMultiMode(false)}
         >
-          한 명씩 추가
+          Single Add
         </button>
         <button 
-          className={`btn ${isMultiMode ? 'btn-primary' : ''}`}
+          className={`btn ${isMultiMode ? 'btn-primary' : 'btn-secondary'}`}
           onClick={() => setIsMultiMode(true)}
         >
-          일괄 추가
+          Bulk Add
         </button>
       </div>
 
@@ -44,28 +44,30 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
             <input 
               type="text" 
               className="input-field" 
-              placeholder="학생 이름 입력" 
+              placeholder="Enter student name" 
               value={singleName}
               onChange={(e) => setSingleName(e.target.value)}
             />
-            <button type="submit" className="btn btn-secondary">추가</button>
+            <button type="submit" className="btn btn-secondary">Add</button>
           </div>
         </form>
       ) : (
         <form onSubmit={handleMultiSubmit} className="student-input-group">
           <textarea 
             className="input-field" 
-            placeholder="이름을 쉼표(,)나 줄바꿈으로 구분해서 입력하세요"
+            placeholder="Enter names separated by commas or newlines"
             rows={4}
             value={multiNames}
             onChange={(e) => setMultiNames(e.target.value)}
           />
-          <button type="submit" className="btn btn-secondary">한번에 추가</button>
+            <button type="submit" className="btn btn-secondary">Add All</button>
         </form>
       )}
 
-      <div style={{ marginTop: '20px' }}>
-        <h3>명단 (총 {students.length}명 / 참여 {students.filter(s => s.active).length}명)</h3>
+      <div style={{ marginTop: '32px' }}>
+        <h3 style={{ marginBottom: '16px', fontSize: '14px', color: 'var(--graphite)' }}>
+          Total: {students.length} / Active: {students.filter(s => s.active).length}
+        </h3>
         <ul className="student-list">
           {students.map(student => (
             <li key={student.id} className={`student-item ${!student.active ? 'inactive' : ''}`}>
@@ -74,19 +76,20 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
                   type="checkbox" 
                   checked={student.active}
                   onChange={() => onToggle(student.id)}
-                  title="체크 해제시 추첨에서 제외됩니다 (결석/지각)"
+                  title="Toggle participation status"
+                  style={{ accentColor: 'var(--carbon-dark)', width: '16px', height: '16px' }}
                 />
                 <span style={{ textDecoration: !student.active ? 'line-through' : 'none' }}>
                   {student.name}
                 </span>
               </div>
               <div className="student-actions">
-                <button onClick={() => onDelete(student.id)} title="삭제">❌</button>
+                <button onClick={() => onDelete(student.id)} title="Delete">Remove</button>
               </div>
             </li>
           ))}
           {students.length === 0 && (
-            <p style={{ textAlign: 'center', color: '#666' }}>학생을 추가해주세요!</p>
+            <p style={{ textAlign: 'center', color: 'var(--silver-fog)', padding: '24px 0' }}>No students added yet.</p>
           )}
         </ul>
       </div>

@@ -35,28 +35,28 @@ function TeacherSecretMenu({ students, secretList, setSecretList }) {
 
   return (
     <div className="secret-modal-overlay" onClick={() => setIsOpen(false)}>
-      <div className="glass-panel secret-modal" onClick={e => e.stopPropagation()}>
-        <h2>🤫 비밀 메뉴 (교사용)</h2>
-        <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '15px' }}>
-          다음에 나올 발표자를 미리 순서대로 지정할 수 있습니다. 쉼표(,)로 구분하세요.<br/>
-          (예: 홍길동, 김철수)
+      <div className="secret-modal" onClick={e => e.stopPropagation()}>
+        <h2>Admin Override</h2>
+        <p style={{ fontSize: '14px', color: 'var(--graphite)', marginBottom: '24px' }}>
+          Pre-determine the sequence of draws. Separate names with commas.<br/>
+          (e.g., John, Jane)
         </p>
         
         <textarea 
           className="input-field"
-          style={{ width: '100%', marginBottom: '15px' }}
+          style={{ width: '100%', marginBottom: '24px', fontFamily: 'var(--font-family)' }}
           rows="3"
-          placeholder="지정할 학생 이름 입력"
+          placeholder="Enter sequence..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
         
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
-          <button className="btn" onClick={() => setIsOpen(false)}>취소</button>
-          <button className="btn btn-primary" onClick={handleSave}>저장 및 닫기</button>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '16px' }}>
+          <button className="btn btn-secondary" onClick={() => setIsOpen(false)}>Cancel</button>
+          <button className="btn btn-primary" onClick={handleSave}>Save</button>
         </div>
-        <p style={{ fontSize: '0.8rem', marginTop: '15px', color: '#888' }}>
-          단축키 `Ctrl + Shift + S` 로 열고 닫을 수 있습니다.
+        <p style={{ fontSize: '12px', marginTop: '24px', color: 'var(--silver-fog)' }}>
+          Press `Ctrl + Shift + S` to toggle.
         </p>
       </div>
     </div>

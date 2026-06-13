@@ -10,7 +10,7 @@ function SlotMachine({ students, secretList, setSecretList }) {
 
   const startDraw = () => {
     if (activeStudents.length < count) {
-      alert(`참여 가능한 학생이 ${count}명보다 적습니다.`);
+      alert(`Not enough active students (${activeStudents.length} available).`);
       return;
     }
 
@@ -71,7 +71,7 @@ function SlotMachine({ students, secretList, setSecretList }) {
     <div className="slot-machine-container">
       <div className="draw-controls" style={{ marginBottom: '20px' }}>
         <div className="count-selector">
-          <label>뽑을 인원수:</label>
+          <label>Number of draws:</label>
           <input 
             type="number" 
             min="1" 
@@ -81,7 +81,6 @@ function SlotMachine({ students, secretList, setSecretList }) {
             className="input-field"
             disabled={isSpinning}
           />
-          <span>명</span>
         </div>
       </div>
 
@@ -106,7 +105,7 @@ function SlotMachine({ students, secretList, setSecretList }) {
         onClick={startDraw} 
         disabled={isSpinning || activeStudents.length === 0}
       >
-        {isSpinning ? '뽑는 중...' : '발표자 뽑기!'}
+        {isSpinning ? 'Drawing...' : 'Start Draw'}
       </button>
     </div>
   );
