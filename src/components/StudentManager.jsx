@@ -48,7 +48,9 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
               value={singleName}
               onChange={(e) => setSingleName(e.target.value)}
             />
-            <button type="submit" className="btn btn-secondary">Add</button>
+            <button type="submit" className="btn btn-secondary" title="Add student">
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>add</span>
+            </button>
           </div>
         </form>
       ) : (
@@ -60,7 +62,9 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
             value={multiNames}
             onChange={(e) => setMultiNames(e.target.value)}
           />
-            <button type="submit" className="btn btn-secondary">Add All</button>
+            <button type="submit" className="btn btn-secondary" title="Add all">
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>playlist_add</span>
+            </button>
         </form>
       )}
 
@@ -84,7 +88,9 @@ function StudentManager({ students, onAdd, onAddMultiple, onToggle, onDelete }) 
                 </span>
               </div>
               <div className="student-actions">
-                <button onClick={() => onDelete(student.id)} title="Delete">Remove</button>
+                <button onClick={() => onDelete(student.id)} title="Delete" style={{ display: 'flex', alignItems: 'center' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>delete</span>
+                </button>
               </div>
             </li>
           ))}

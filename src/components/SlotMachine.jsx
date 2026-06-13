@@ -104,7 +104,11 @@ function SlotMachine({ students, secretList, setSecretList }) {
         className="draw-btn" 
         onClick={startDraw} 
         disabled={isSpinning || activeStudents.length === 0}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
       >
+        <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
+          {isSpinning ? 'hourglass_empty' : 'shuffle'}
+        </span>
         {isSpinning ? 'Drawing...' : 'Start Draw'}
       </button>
     </div>
