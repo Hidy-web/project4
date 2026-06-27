@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StudentManager from './components/StudentManager';
 import SlotMachine from './components/SlotMachine';
 import TeacherSecretMenu from './components/TeacherSecretMenu';
+import EthicsGate from './components/EthicsGate';
 import './index.css';
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
   });
 
   const [secretList, setSecretList] = useState([]);
+  const [hasAgreed, setHasAgreed] = useState(false);
+
 
   // 상태가 변경될 때마다 로컬 스토리지에 저장
   useEffect(() => {
@@ -42,6 +45,10 @@ function App() {
   const deleteStudent = (id) => {
     setStudents(students.filter(s => s.id !== id));
   };
+
+  if (!hasAgreed) {
+    return <EthicsGate onAgree={() => setHasAgreed(true)} />;
+  }
 
   return (
     <div className="app-container">
