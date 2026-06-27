@@ -3,6 +3,7 @@ import StudentManager from './components/StudentManager';
 import SlotMachine from './components/SlotMachine';
 import TeacherSecretMenu from './components/TeacherSecretMenu';
 import EthicsGate from './components/EthicsGate';
+import Footer from './components/Footer';
 import './index.css';
 
 function App() {
@@ -77,6 +78,7 @@ function App() {
         secretList={secretList}
         setSecretList={setSecretList}
       />
+      <Footer />
     </div>
   );
 }

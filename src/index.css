@@ -513,3 +513,53 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(62, 106, 225, 0.4);
 }
+
+/* Footer & Modals */
+.app-footer {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--cloud-gray);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--pewter);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+.footer-divider {
+  color: var(--cloud-gray);
+}
+
+.footer-info p {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.modal-content-scroll {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--graphite);
+}
+
+.modal-content-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--pale-silver);
+  border-radius: 4px;
+}
+
+.terms-modal {
+  width: 600px;
+}
+
